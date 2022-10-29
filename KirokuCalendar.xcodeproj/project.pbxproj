@@ -9,21 +9,47 @@
 /* Begin PBXBuildFile section */
 		121A86B6290012A70037B017 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A86B5290012A70037B017 /* AppDelegate.swift */; };
 		121A86B8290012A70037B017 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A86B7290012A70037B017 /* SceneDelegate.swift */; };
-		121A86BA290012A70037B017 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A86B9290012A70037B017 /* ViewController.swift */; };
+		121A86BA290012A70037B017 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A86B9290012A70037B017 /* CalendarViewController.swift */; };
 		121A86BD290012A70037B017 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 121A86BB290012A70037B017 /* Main.storyboard */; };
 		121A86BF290012A80037B017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 121A86BE290012A80037B017 /* Assets.xcassets */; };
 		121A86C2290012A80037B017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 121A86C0290012A80037B017 /* LaunchScreen.storyboard */; };
+		121A86CB290017610037B017 /* DateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A86CA290017600037B017 /* DateModels.swift */; };
+		12EC23CA2900C00900ABFAEB /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */; };
+		12EC23CC2901872D00ABFAEB /* WeekDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */; };
+		12EC23CE2902D60E00ABFAEB /* AccentColorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */; };
+		12EC23D029056EDE00ABFAEB /* AccentColorTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23CF29056EDE00ABFAEB /* AccentColorTableViewController.swift */; };
+		12EC23D22905EC6C00ABFAEB /* DetailDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23D12905EC6C00ABFAEB /* DetailDayViewController.swift */; };
+		12EC23D42906ADD300ABFAEB /* ScheduleModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23D32906ADD200ABFAEB /* ScheduleModels.swift */; };
+		12EC23D62906AFFE00ABFAEB /* InputScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23D52906AFFE00ABFAEB /* InputScheduleViewController.swift */; };
+		12EC23D82907F8E300ABFAEB /* ScheduleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23D72907F8E300ABFAEB /* ScheduleTableViewCell.swift */; };
+		12EC23DC2909676400ABFAEB /* SearchScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23DB2909676400ABFAEB /* SearchScheduleViewController.swift */; };
+		12EC23DE2909E4C400ABFAEB /* DetailScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23DD2909E4C400ABFAEB /* DetailScheduleViewController.swift */; };
+		FE8DCD32B14119D1CAE33C65 /* Pods_KirokuCalendar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40D2EA80ECF30408D5F12977 /* Pods_KirokuCalendar.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		121A86B2290012A70037B017 /* KirokuCalendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KirokuCalendar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		121A86B5290012A70037B017 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		121A86B7290012A70037B017 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		121A86B9290012A70037B017 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		121A86B9290012A70037B017 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		121A86BC290012A70037B017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		121A86BE290012A80037B017 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		121A86C1290012A80037B017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		121A86C3290012A80037B017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		121A86CA290017600037B017 /* DateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModels.swift; sourceTree = "<group>"; };
+		12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTableViewController.swift; sourceTree = "<group>"; };
+		12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColorModels.swift; sourceTree = "<group>"; };
+		12EC23CF29056EDE00ABFAEB /* AccentColorTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColorTableViewController.swift; sourceTree = "<group>"; };
+		12EC23D12905EC6C00ABFAEB /* DetailDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailDayViewController.swift; sourceTree = "<group>"; };
+		12EC23D32906ADD200ABFAEB /* ScheduleModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModels.swift; sourceTree = "<group>"; };
+		12EC23D52906AFFE00ABFAEB /* InputScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputScheduleViewController.swift; sourceTree = "<group>"; };
+		12EC23D72907F8E300ABFAEB /* ScheduleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleTableViewCell.swift; sourceTree = "<group>"; };
+		12EC23DB2909676400ABFAEB /* SearchScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScheduleViewController.swift; sourceTree = "<group>"; };
+		12EC23DD2909E4C400ABFAEB /* DetailScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailScheduleViewController.swift; sourceTree = "<group>"; };
+		1CA718834CABAB809E746982 /* Pods-KirokuCalendar.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KirokuCalendar.debug.xcconfig"; path = "Target Support Files/Pods-KirokuCalendar/Pods-KirokuCalendar.debug.xcconfig"; sourceTree = "<group>"; };
+		40D2EA80ECF30408D5F12977 /* Pods_KirokuCalendar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KirokuCalendar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8195277D1238B33ECEEFDF9 /* Pods-KirokuCalendar.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KirokuCalendar.release.xcconfig"; path = "Target Support Files/Pods-KirokuCalendar/Pods-KirokuCalendar.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +57,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8DCD32B14119D1CAE33C65 /* Pods_KirokuCalendar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		003DA2394AD42CCB890D310B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40D2EA80ECF30408D5F12977 /* Pods_KirokuCalendar.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		121A86A9290012A70037B017 = {
 			isa = PBXGroup;
 			children = (
 				121A86B4290012A70037B017 /* KirokuCalendar */,
 				121A86B3290012A70037B017 /* Products */,
+				6CA9EBB01861C12B4C8935A3 /* Pods */,
+				003DA2394AD42CCB890D310B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +95,41 @@
 			children = (
 				121A86B5290012A70037B017 /* AppDelegate.swift */,
 				121A86B7290012A70037B017 /* SceneDelegate.swift */,
-				121A86B9290012A70037B017 /* ViewController.swift */,
+				121A86B9290012A70037B017 /* CalendarViewController.swift */,
+				12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */,
+				12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */,
+				12EC23CF29056EDE00ABFAEB /* AccentColorTableViewController.swift */,
+				12EC23D12905EC6C00ABFAEB /* DetailDayViewController.swift */,
+				12EC23D72907F8E300ABFAEB /* ScheduleTableViewCell.swift */,
+				12EC23DD2909E4C400ABFAEB /* DetailScheduleViewController.swift */,
+				12EC23D52906AFFE00ABFAEB /* InputScheduleViewController.swift */,
+				12EC23DB2909676400ABFAEB /* SearchScheduleViewController.swift */,
 				121A86BB290012A70037B017 /* Main.storyboard */,
 				121A86BE290012A80037B017 /* Assets.xcassets */,
 				121A86C0290012A80037B017 /* LaunchScreen.storyboard */,
+				121A86C9290016BF0037B017 /* Models */,
 				121A86C3290012A80037B017 /* Info.plist */,
 			);
 			path = KirokuCalendar;
+			sourceTree = "<group>";
+		};
+		121A86C9290016BF0037B017 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				121A86CA290017600037B017 /* DateModels.swift */,
+				12EC23D32906ADD200ABFAEB /* ScheduleModels.swift */,
+				12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6CA9EBB01861C12B4C8935A3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CA718834CABAB809E746982 /* Pods-KirokuCalendar.debug.xcconfig */,
+				A8195277D1238B33ECEEFDF9 /* Pods-KirokuCalendar.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 121A86C6290012A80037B017 /* Build configuration list for PBXNativeTarget "KirokuCalendar" */;
 			buildPhases = (
+				223606653D8B62741854E3BE /* [CP] Check Pods Manifest.lock */,
 				121A86AE290012A70037B017 /* Sources */,
 				121A86AF290012A70037B017 /* Frameworks */,
 				121A86B0290012A70037B017 /* Resources */,
+				EE63FE1D8C752BC426D26AE3 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,14 +200,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		223606653D8B62741854E3BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-KirokuCalendar-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EE63FE1D8C752BC426D26AE3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KirokuCalendar/Pods-KirokuCalendar-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-KirokuCalendar/Pods-KirokuCalendar-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KirokuCalendar/Pods-KirokuCalendar-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		121A86AE290012A70037B017 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				121A86BA290012A70037B017 /* ViewController.swift in Sources */,
+				121A86BA290012A70037B017 /* CalendarViewController.swift in Sources */,
+				121A86CB290017610037B017 /* DateModels.swift in Sources */,
+				12EC23D82907F8E300ABFAEB /* ScheduleTableViewCell.swift in Sources */,
+				12EC23D42906ADD300ABFAEB /* ScheduleModels.swift in Sources */,
+				12EC23DC2909676400ABFAEB /* SearchScheduleViewController.swift in Sources */,
 				121A86B6290012A70037B017 /* AppDelegate.swift in Sources */,
+				12EC23DE2909E4C400ABFAEB /* DetailScheduleViewController.swift in Sources */,
+				12EC23D029056EDE00ABFAEB /* AccentColorTableViewController.swift in Sources */,
 				121A86B8290012A70037B017 /* SceneDelegate.swift in Sources */,
+				12EC23D62906AFFE00ABFAEB /* InputScheduleViewController.swift in Sources */,
+				12EC23CC2901872D00ABFAEB /* WeekDayTableViewController.swift in Sources */,
+				12EC23CA2900C00900ABFAEB /* SettingTableViewController.swift in Sources */,
+				12EC23CE2902D60E00ABFAEB /* AccentColorModels.swift in Sources */,
+				12EC23D22905EC6C00ABFAEB /* DetailDayViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,14 +402,16 @@
 		};
 		121A86C7290012A80037B017 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CA718834CABAB809E746982 /* Pods-KirokuCalendar.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KirokuCalendar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "記録カレンダー";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -299,7 +421,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.KirokuCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -310,14 +432,16 @@
 		};
 		121A86C8290012A80037B017 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8195277D1238B33ECEEFDF9 /* Pods-KirokuCalendar.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KirokuCalendar/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "記録カレンダー";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -327,7 +451,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 3.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.KirokuCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
