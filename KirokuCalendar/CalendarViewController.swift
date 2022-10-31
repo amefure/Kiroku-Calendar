@@ -11,17 +11,19 @@ import RealmSwift
 import GoogleMobileAds
 
 
-
 class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance ,UIAdaptivePresentationControllerDelegate{
     
     // MARK: - instance
     let realm = try! Realm()
     let df = DateFormatter()
+    let eventController = EventController()
     
     // MARK: - data
     var dateArray:Results<DateModels>! = nil
     var scheduleArray:Results<ScheduleModels>! = nil
     
+    // MARK: - API  六曜や陰暦を取得する
+    var dateInfoAPI:[String:Any] = [:]
     
     // MARK: - Outlet
     @IBOutlet weak var calender:FSCalendar!
@@ -109,6 +111,23 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
             return .tintColor
         }
     }
+    
+    // MARK: - API  六曜や陰暦を取得する
+    func loadDateAPI() {
+        let userDefaults = UserDefaults.standard
+        let rokuyouBool = userDefaults.string(forKey: "rokuyou") ?? "1"
+        let inrekiBool = userDefaults.string(forKey: "inreki") ?? "1"
+        
+        if rokuyouBool == "1" || inrekiBool == "1"{
+            // ユーザーフラグどちらかONならAPI読み込み
+            let api = fetchDateInfoAPI()
+            api.getDateInfoFromKOYOKMIAPI { data in
+                    DispatchQueue.main.async {
+                        self.dateInfoAPI = data
+                    }
+                }
+        }
+    }
     // MARK: - Function
     
     // MARK: - View
@@ -130,7 +149,21 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         // MARK: - Admob
+        
+        // MARK: - API  六曜や陰暦を取得する
+        loadDateAPI()
+        
+        // MARK: -　最初のみ当日の日付の時間まで保持しているため、時間を除外　日付のみに df.dateFormat = "yyyy-MM-dd"
+        let dateStr = df.string(from: Date())
+        print(dateStr)
+        selectedDate = df.date(from:dateStr)!
+        
+        // MARK: - カレンダーの読み込み識別→承認済みならプロパティに値が格納される
+        eventController.judgeUserSetting()
+        
     }
+    
+   
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -138,6 +171,11 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         hasDateAction()
         calenderSetting()
         calender.reloadData()
+        // MARK: - API  六曜や陰暦を取得する
+        loadDateAPI()
+        
+        // MARK: - カレンダーの読み込み識別→承認済みならプロパティに値が格納される
+        eventController.judgeUserSetting()
       }
       
     
@@ -188,6 +226,8 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailDay") as! DetailDayViewController
             nextVC.date = date
+            nextVC.dateInfoAPI = dateInfoAPI
+            nextVC.events = eventController.events
             navigationController?.pushViewController(nextVC, animated: true)
         }else{
             selectedDate = date

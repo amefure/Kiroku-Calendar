@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // MARK: - Realm migration
-        let config = Realm.Configuration(schemaVersion: 1)
+        let config = Realm.Configuration(schemaVersion: 2)
         Realm.Configuration.defaultConfiguration = config
         
         // MARK: - AdMob

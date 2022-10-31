@@ -8,11 +8,14 @@
 import UIKit
 import RealmSwift
 import GoogleMobileAds
+import EventKit
 
 class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
 
     // MARK: - receive property
     var date:Date = Date()
+    var dateInfoAPI:[String:Any] = [:]
+    var events: [EKEvent]? = nil //　カレンダーからイベントを取得
     
     // MARK: - instance
     let realm = try! Realm()
@@ -23,15 +26,20 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     var scheduleArray:Results<ScheduleModels>! = nil
     
     // MARK: - Outlet
-    @IBOutlet var monthLabel:UILabel!
-    @IBOutlet var dayLabel:UILabel!
-    @IBOutlet var weekLabel:UILabel!
-    @IBOutlet var checkmark:UIImageView!
-    @IBOutlet var tableView:UITableView!
+    @IBOutlet var monthLabel:UILabel!    // 月
+    @IBOutlet var dayLabel:UILabel!      // 日にち
+    @IBOutlet var weekLabel:UILabel!     // 曜日ラベル
+    @IBOutlet var checkmark:UIImageView! // 継続記録
+    @IBOutlet var rokuyouLabel:UILabel!  // 六曜
+    @IBOutlet var inrekiLabel:UILabel!   // 陰暦
+    @IBOutlet var tableView:UITableView! // テーブルビュー
+    @IBOutlet var changeBtn:UIButton!    // カレンダーアプリイベント表示チェンジボタン
+    @IBOutlet var calendarLabel:UILabel! // カレンダーアプリ連携時表示ラベル
+    
     
     // MARK: - Function
+    // MARK: - ユーザーが選択しているカラーにチェックマークを変更するためのカラーを返すメソッド
     func selectedColor() -> UIColor{
-    
         let userDefaults = UserDefaults.standard
         let color = userDefaults.string(forKey:"accentColor") ?? "tintColor"
         switch color {
@@ -54,11 +62,82 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
         }
     }
     
+    // MARK: - 表示されている日付に基づいた予定のみを取得する
     func dataFetch(){
         scheduleArray = realm.objects(ScheduleModels.self)
         scheduleArray = scheduleArray.filter("(start <= %@ && end >= %@) OR start == %@",date,date,date)
 
     }
+    
+    // MARK: - DataSet
+    func setLabelUI(){
+        df.dateFormat = "d"
+        dayLabel.text = df.string(from: date)
+        df.dateFormat = "MM"
+        monthLabel.text = df.string(from: date) + "月"
+        df.dateFormat = "EEE"
+        weekLabel.text = df.string(from: date) + "曜日"
+        df.dateFormat = "yyyy-MM-dd"
+        
+        if dateArray.first(where: { $0.date == df.string(from: date) }) != nil {
+            let image = UIImage(systemName: "checkmark.seal.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40, weight: .light, scale: .default))?.withTintColor(selectedColor(), renderingMode: .alwaysOriginal)
+            checkmark.image = image
+        }else{
+            let image = UIImage(systemName: "checkmark.seal", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40, weight: .light, scale: .default))?.withTintColor(selectedColor(), renderingMode: .alwaysOriginal)
+            checkmark.image = image
+        }
+    }
+    // MARK: - DataSet
+    
+    // MARK: - API  六曜や陰暦を取得する
+    func setUpDateInfoLabel(){
+        df.dateFormat = "yyyy-MM-dd"
+        let dateStr = df.string(from: self.date)
+        
+        let day = self.dateInfoAPI[dateStr] as? [String: Any]
+        let dictKeysDay = day?.keys // キー値配列を取得
+        
+        let userDefaults = UserDefaults.standard
+        let rokuyouBool = userDefaults.string(forKey: "rokuyou") ?? "1"
+        let inrekiBool = userDefaults.string(forKey: "inreki") ?? "1"
+        
+        if rokuyouBool == "1" {
+            let rokuyou = day?[(dictKeysDay?.first(where: {$0 == "rokuyou"}))!]
+            self.rokuyouLabel.isHidden = false
+            self.rokuyouLabel.text = rokuyou as? String
+        }else{
+            self.rokuyouLabel.isHidden = true
+        }
+
+        if  inrekiBool == "1"{
+            self.inrekiLabel.isHidden = false
+            let inreki = day?[(dictKeysDay?.first(where: {$0 == "inreki"}))!]
+            self.inrekiLabel.text = inreki as? String
+        }
+        else{
+            self.inrekiLabel.isHidden = true
+        }
+    }
+    // MARK: - API  六曜や陰暦を取得する
+    
+    
+    // MARK: - カレンダーアプリと連携メソッド
+    func hasEventsLoaded(){
+        calendarLabel.isHidden = true // デフォルトは非表示に
+        if events != nil {
+            // 連携済
+            // 対象の日付を範囲に含んでいるイベントのみにする
+            events = events!.filter({$0.startDate <= date && $0.endDate >= date })
+            if events!.count == 0{
+                calendarLabel.text = "カレンダーに予定はありません。"
+            }
+            changeBtn.isHidden = false
+        }else{
+            // 未連携
+            changeBtn.isHidden = true
+        }
+    }
+    // MARK: - カレンダーアプリと連携メソッド
     // MARK: - Function
     
     // MARK: - Admob
@@ -89,37 +168,30 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     }
     // MARK: - Admob
     
+    
+    
     // MARK: - View
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: - DateFormat
-        df.dateFormat = "d"
-        dayLabel.text = df.string(from: date)
-        df.dateFormat = "MM"
-        monthLabel.text = df.string(from: date) + "月"
-        df.dateFormat = "EEE"
-        weekLabel.text = df.string(from: date) + "曜日"
-        df.dateFormat = "yyyy-MM-dd"
-        // MARK: - DateFormat
-        
         // MARK: - Data fetch
         dateArray = realm.objects(DateModels.self)
         dataFetch()
-
         // MARK: - Data fetch
         
-        if dateArray.first(where: { $0.date == df.string(from: date) }) != nil {
-            let image = UIImage(systemName: "checkmark.seal.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40, weight: .light, scale: .default))?.withTintColor(selectedColor(), renderingMode: .alwaysOriginal)
-            checkmark.image = image
-        }else{
-            let image = UIImage(systemName: "checkmark.seal", withConfiguration: UIImage.SymbolConfiguration(pointSize: 40, weight: .light, scale: .default))?.withTintColor(selectedColor(), renderingMode: .alwaysOriginal)
-            checkmark.image = image
-        }
+        // MARK: - DataSet
+        setLabelUI()
         
-        //トップに戻るボタンを作成
+        // MARK: - API  六曜や陰暦を取得する
+        setUpDateInfoLabel()
+        
+        // MARK: - InputPageへの画面遷移
         let barButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style:.plain, target: self, action: #selector(self.showInputSchedule))
         self.navigationItem.rightBarButtonItem = barButton
+        
+        // MARK: - カレンダーアプリとの連携識別
+        hasEventsLoaded()
+        changeBtn.addTarget(self, action: #selector(self.changeCalendarEvent), for: .touchUpInside)
         
         // MARK: - Admob
         bannerView = GADBannerView(adSize: GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width))
@@ -133,17 +205,37 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     override func viewWillAppear(_ animated: Bool) {
         dataFetch()
         tableView.reloadData()
+        
+        hasEventsLoaded()
+        
+
     }
     
     // MARK: - BtnAction
+    // NavigationBtn inputPage
     @objc func showInputSchedule(){
-        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "InputSchedule") as! InputScheduleViewController
         nextVC.date = date
         let navigationController = UINavigationController(rootViewController: nextVC)
         navigationController.modalPresentationStyle = .fullScreen
         self.present(navigationController, animated: true, completion: nil)
+        // 登録処理を押された場合は通常に戻しておく
+        changeBtn.tag = 0
+        calendarLabel.isHidden = true
+    }
+    
+    //
+    @objc func changeCalendarEvent(){
+        if changeBtn.tag == 0 {
+            changeBtn.tag = 1
+            tableView.reloadData()
+            calendarLabel.isHidden = false
+        }else{
+            changeBtn.tag = 0
+            tableView.reloadData()
+            calendarLabel.isHidden = true
+        }
     }
     // MARK: - BtnAction
 
@@ -151,38 +243,60 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     // MARK: - TableView delegate
     // セル数カウント
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.scheduleArray.count
+        if events != nil && changeBtn.tag == 1 {
+            return self.events!.count
+        }else{
+            return self.scheduleArray.count
+        }
     }
     
     // セル構築
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleTableViewCell") as! ScheduleTableViewCell
-        cell.create(date: date, data: self.scheduleArray[indexPath.row])
-        return cell
+        
+        if events != nil && changeBtn.tag == 1 {
+            let cell = UITableViewCell(style: .default, reuseIdentifier: "myCell")
+            cell.textLabel!.text = events![indexPath.row].title
+            return cell
+        }else{
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ScheduleTableViewCell") as! ScheduleTableViewCell
+            cell.create(date: date, data: self.scheduleArray[indexPath.row])
+            return cell
+        }
+        
+        
     }
     
     // スワイプアクション：削除ボタン
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style: .destructive, title: "") {(action, view, completionHandler) in
-            
-            let result = self.scheduleArray[indexPath.row]
-            try! self.realm.write{
-                self.realm.delete(result)
+        if events != nil && changeBtn.tag == 1 {
+            let configuration = UISwipeActionsConfiguration(actions: [])
+            return configuration
+        }else{
+            let action = UIContextualAction(style: .destructive, title: "") {(action, view, completionHandler) in
+                
+                let result = self.scheduleArray[indexPath.row]
+                try! self.realm.write{
+                    self.realm.delete(result)
+                }
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+                completionHandler(true)
             }
-            tableView.deleteRows(at: [indexPath], with: .automatic)
-            completionHandler(true)
+            action.image = UIImage(systemName: "trash.fill")
+            let configuration = UISwipeActionsConfiguration(actions: [action])
+            return configuration
         }
-        action.image = UIImage(systemName: "trash.fill")
-        let configuration = UISwipeActionsConfiguration(actions: [action])
-        return configuration
-        
     }
     
+    // 選択された予定の詳細へ移動
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailSchedule") as! DetailScheduleViewController
-        nextVC.schedule = scheduleArray[indexPath.row]
-        navigationController?.pushViewController(nextVC, animated: true)
+        if events != nil && changeBtn.tag == 1 {
+            // 何もしない
+        }else{
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailSchedule") as! DetailScheduleViewController
+            nextVC.schedule = scheduleArray[indexPath.row]
+            navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
     
     // MARK: - TableView delegate

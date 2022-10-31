@@ -13,7 +13,14 @@ class SettingTableViewController:UITableViewController {
     
     // MARK: - instance
     let realm = try! Realm()
+    let userDefaults = UserDefaults.standard
     
+    // MARK: - Outlet
+    @IBOutlet var rokuyouSwitch:UISwitch!
+    @IBOutlet var inrekiSwitch:UISwitch!
+    @IBOutlet var calendarSwitch:UISwitch!
+    
+
     
     // MARK: - Admob
     var bannerView: GADBannerView!
@@ -54,31 +61,91 @@ class SettingTableViewController:UITableViewController {
         bannerView.load(GADRequest())
         // MARK: - Admob
     
+
+        setToggleSwitch()
+    }
+    
+    func setToggleSwitch(){
+        let rokuyouBool = userDefaults.string(forKey: "rokuyou") ?? "1"
+        let inrekiBool = userDefaults.string(forKey: "inreki") ?? "1"
+        let calendarBool = userDefaults.string(forKey: "calendar") ?? "1"
+        
+        
+        if rokuyouBool == "1"{
+            rokuyouSwitch.isOn = true
+        }else{
+            rokuyouSwitch.isOn = false
+        }
+        
+        if inrekiBool == "1"{
+            inrekiSwitch.isOn = true
+        }else{
+            inrekiSwitch.isOn = false
+        }
+        
+        if calendarBool == "1"{
+            calendarSwitch.isOn = true
+        }else{
+            calendarSwitch.isOn = false
+        }
+        
+        inrekiSwitch.addTarget(self, action: #selector(self.changeInrekiSwitch(sender:)), for:  UIControl.Event.valueChanged)
+        rokuyouSwitch.addTarget(self, action: #selector(self.changeRokuyouSwitch(sender:)), for:  UIControl.Event.valueChanged)
+        calendarSwitch.addTarget(self, action: #selector(self.changeCalendarSwitch(sender:)), for: UIControl.Event.valueChanged)
+    }
+    
+    @objc func changeRokuyouSwitch(sender: UISwitch) {
+        let onCheck: Bool = sender.isOn
+        if onCheck {
+            userDefaults.set("1", forKey: "rokuyou")
+        } else {
+            userDefaults.set("0", forKey: "rokuyou")
+        }
+    }
+    
+    @objc func changeInrekiSwitch(sender: UISwitch) {
+        let onCheck: Bool = sender.isOn
+        if onCheck {
+            userDefaults.set("1", forKey: "inreki")
+        } else {
+            userDefaults.set("0", forKey: "inreki")
+        }
+    }
+    
+    @objc func changeCalendarSwitch(sender: UISwitch) {
+        let onCheck: Bool = sender.isOn
+        if onCheck {
+            userDefaults.set("1", forKey: "calendar")
+        } else {
+            userDefaults.set("0", forKey: "calendar")
+        }
     }
     
     
     // MARK: - delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60 // セルの高さ
+        return 40 // セルの高さ
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        // MARK: - 週始め
         if indexPath == [0,0] {
-            // 週始め
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nextVC =  storyboard.instantiateViewController(withIdentifier: "WeekDay")
             navigationController?.pushViewController(nextVC, animated: true)
         }
         
+        // MARK: - accent color
         if indexPath == [0,1] {
-            // accent color
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "AccentColor")
             navigationController?.pushViewController(nextVC,animated: true)
         }
-        
+                
+        // MARK: - Reset Data
         if indexPath == [1,0] {
             // アラート表示
             let alert = UIAlertController(title: "データの削除", message: "データを削除してもよろしいですか？", preferredStyle: .alert)

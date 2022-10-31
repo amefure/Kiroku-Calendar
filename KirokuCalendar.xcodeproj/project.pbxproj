@@ -14,6 +14,8 @@
 		121A86BF290012A80037B017 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 121A86BE290012A80037B017 /* Assets.xcassets */; };
 		121A86C2290012A80037B017 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 121A86C0290012A80037B017 /* LaunchScreen.storyboard */; };
 		121A86CB290017610037B017 /* DateModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121A86CA290017600037B017 /* DateModels.swift */; };
+		1264C02D290E2D9A006B17BF /* fetchDateInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264C02C290E2D9A006B17BF /* fetchDateInfoAPI.swift */; };
+		1264C031290FE606006B17BF /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264C030290FE606006B17BF /* EventController.swift */; };
 		12EC23CA2900C00900ABFAEB /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */; };
 		12EC23CC2901872D00ABFAEB /* WeekDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */; };
 		12EC23CE2902D60E00ABFAEB /* AccentColorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */; };
@@ -37,6 +39,8 @@
 		121A86C1290012A80037B017 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		121A86C3290012A80037B017 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		121A86CA290017600037B017 /* DateModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateModels.swift; sourceTree = "<group>"; };
+		1264C02C290E2D9A006B17BF /* fetchDateInfoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchDateInfoAPI.swift; sourceTree = "<group>"; };
+		1264C030290FE606006B17BF /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTableViewController.swift; sourceTree = "<group>"; };
 		12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColorModels.swift; sourceTree = "<group>"; };
@@ -100,6 +104,7 @@
 				12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */,
 				12EC23CF29056EDE00ABFAEB /* AccentColorTableViewController.swift */,
 				12EC23D12905EC6C00ABFAEB /* DetailDayViewController.swift */,
+				1264C02C290E2D9A006B17BF /* fetchDateInfoAPI.swift */,
 				12EC23D72907F8E300ABFAEB /* ScheduleTableViewCell.swift */,
 				12EC23DD2909E4C400ABFAEB /* DetailScheduleViewController.swift */,
 				12EC23D52906AFFE00ABFAEB /* InputScheduleViewController.swift */,
@@ -116,6 +121,7 @@
 		121A86C9290016BF0037B017 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				1264C030290FE606006B17BF /* EventController.swift */,
 				121A86CA290017600037B017 /* DateModels.swift */,
 				12EC23D32906ADD200ABFAEB /* ScheduleModels.swift */,
 				12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */,
@@ -252,6 +258,8 @@
 				12EC23D82907F8E300ABFAEB /* ScheduleTableViewCell.swift in Sources */,
 				12EC23D42906ADD300ABFAEB /* ScheduleModels.swift in Sources */,
 				12EC23DC2909676400ABFAEB /* SearchScheduleViewController.swift in Sources */,
+				1264C02D290E2D9A006B17BF /* fetchDateInfoAPI.swift in Sources */,
+				1264C031290FE606006B17BF /* EventController.swift in Sources */,
 				121A86B6290012A70037B017 /* AppDelegate.swift in Sources */,
 				12EC23DE2909E4C400ABFAEB /* DetailScheduleViewController.swift in Sources */,
 				12EC23D029056EDE00ABFAEB /* AccentColorTableViewController.swift in Sources */,
@@ -407,11 +415,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KirokuCalendar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "記録カレンダー";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーからのイベント取得";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラロールの利用";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -421,7 +431,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.KirokuCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -437,11 +447,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KirokuCalendar/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "記録カレンダー";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "カレンダーからのイベント取得";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "カメラロールの利用";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -451,7 +463,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 3.0;
+				MARKETING_VERSION = 4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.KirokuCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

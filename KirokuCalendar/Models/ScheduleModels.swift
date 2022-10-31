@@ -12,10 +12,9 @@ class ScheduleModels: Object,ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id:ObjectId
     @Persisted var title:String
     @Persisted var memo:String
-//    @Persisted var startDate:String
-//    @Persisted var endDate:String
     @Persisted var start:Date
     @Persisted var end:Date
+    @Persisted var image:String
     
     
     func betweenDate(start:String,end:String,date:Date)->Bool{
@@ -27,4 +26,6 @@ class ScheduleModels: Object,ObjectKeyIdentifiable {
         }
             return false
     }
+    
+  
 }

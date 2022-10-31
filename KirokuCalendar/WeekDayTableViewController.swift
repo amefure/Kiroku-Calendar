@@ -21,7 +21,7 @@ class WeekdayTableViewController: UITableViewController {
         let userDefaults = UserDefaults.standard
         let weekNum = userDefaults.integer(forKey:"firstWeekday")
         switch weekNum {
-        case 0:
+        case 7:
             return 5
         case 1:
             return 6
@@ -75,7 +75,7 @@ class WeekdayTableViewController: UITableViewController {
         case 4 :
             userDefaults.set(6, forKey: "firstWeekday")
         case 5 :
-            userDefaults.set(0, forKey: "firstWeekday")
+            userDefaults.set(7, forKey: "firstWeekday")
         case 6 :
             userDefaults.set(1, forKey: "firstWeekday")
         default:
