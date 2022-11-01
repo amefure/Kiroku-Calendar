@@ -9,6 +9,7 @@ import UIKit
 import RealmSwift
 import GoogleMobileAds
 import EventKit
+import Contacts
 
 class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableViewDataSource {
 
@@ -16,6 +17,7 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     var date:Date = Date()
     var dateInfoAPI:[String:Any] = [:]
     var events: [EKEvent]? = nil //　カレンダーからイベントを取得
+    var contacts: [CNContact]? = nil // 連絡先から情報を取得
     
     // MARK: - instance
     let realm = try! Realm()
@@ -35,6 +37,7 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     @IBOutlet var tableView:UITableView! // テーブルビュー
     @IBOutlet var changeBtn:UIButton!    // カレンダーアプリイベント表示チェンジボタン
     @IBOutlet var calendarLabel:UILabel! // カレンダーアプリ連携時表示ラベル
+    @IBOutlet var birthdayLabel:UILabel! // 連絡先連携時表示ラベル
     
     
     // MARK: - Function
@@ -92,8 +95,9 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     // MARK: - API  六曜や陰暦を取得する
     func setUpDateInfoLabel(){
         df.dateFormat = "yyyy-MM-dd"
+        df.locale = Locale(identifier: "ja_JP")
+        df.calendar = Calendar(identifier: .gregorian)
         let dateStr = df.string(from: self.date)
-        
         let day = self.dateInfoAPI[dateStr] as? [String: Any]
         let dictKeysDay = day?.keys // キー値配列を取得
         
@@ -138,6 +142,35 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
         }
     }
     // MARK: - カレンダーアプリと連携メソッド
+    
+    // MARK: - 連絡先連携メソッド
+    func hasContactLoaded(){
+        birthdayLabel.isHidden = true // デフォルトは非表示に
+        birthdayLabel.backgroundColor = selectedColor()
+        birthdayLabel.layer.opacity = 0.8
+        birthdayLabel.layer.cornerRadius = 10
+        birthdayLabel.clipsToBounds = true
+        
+        if contacts != nil {
+            // 連携済
+            // 対象の日付を範囲に含んでいるイベントのみにする
+            var dateComponent = Calendar.current.dateComponents(in: TimeZone.current, from: date)
+            contacts = contacts!.filter({ $0.birthday?.month == dateComponent.month && $0.birthday?.day == dateComponent.day })
+            if contacts!.count != 0{
+                if contacts!.first != nil{
+                    if contacts!.first!.familyName != "" {
+                        birthdayLabel.text = contacts!.first!.familyName + "さんの誕生日"
+                        birthdayLabel.isHidden = false
+                    }else if contacts!.first!.givenName != ""{
+                        birthdayLabel.text = contacts!.first!.givenName + "さんの誕生日"
+                        birthdayLabel.isHidden = false
+                    }
+                }
+            }
+        }
+    }
+    // MARK: - 連絡先連携メソッド
+    
     // MARK: - Function
     
     // MARK: - Admob
@@ -192,6 +225,9 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
         // MARK: - カレンダーアプリとの連携識別
         hasEventsLoaded()
         changeBtn.addTarget(self, action: #selector(self.changeCalendarEvent), for: .touchUpInside)
+        
+        // MARK: - 連絡先との連携識別
+        hasContactLoaded()
         
         // MARK: - Admob
         bannerView = GADBannerView(adSize: GADPortraitAnchoredAdaptiveBannerAdSizeWithWidth(self.view.frame.size.width))

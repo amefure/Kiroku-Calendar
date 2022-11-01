@@ -30,20 +30,20 @@
                                 </label>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleTableViewCell" id="vXw-uc-hLg" customClass="ScheduleTableViewCell" customModule="KirokuCalendar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="86.5" width="394" height="41"/>
+                                        <rect key="frame" x="0.0" y="86.5" width="394" height="41.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vXw-uc-hLg" id="HiE-sb-cJ7">
-                                            <rect key="frame" x="0.0" y="0.0" width="394" height="41"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="41.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iw1-9f-hx1">
-                                                    <rect key="frame" x="81" y="10" width="70" height="21"/>
+                                                    <rect key="frame" x="81" y="10.5" width="70" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pzz-e6-wP5">
-                                                    <rect key="frame" x="10" y="10" width="53" height="21"/>
+                                                    <rect key="frame" x="10" y="10" width="53" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="53" id="2wL-me-pRE"/>
                                                     </constraints>
@@ -52,20 +52,20 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="H1g-go-nLy">
-                                                    <rect key="frame" x="68" y="5" width="3" height="31"/>
+                                                    <rect key="frame" x="68" y="5" width="3" height="31.5"/>
                                                     <color key="backgroundColor" name="AccentColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="3" id="CAO-b6-Dr2"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fph-lm-C4V">
-                                                    <rect key="frame" x="0.0" y="10" width="10" height="21"/>
+                                                    <rect key="frame" x="0.0" y="10.5" width="10" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGX-Vv-RJN">
-                                                    <rect key="frame" x="50" y="10" width="10" height="21"/>
+                                                    <rect key="frame" x="50" y="10.5" width="10" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -321,7 +321,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mfM-Ni-XiT">
-                                <rect key="frame" x="70" y="94" width="40" height="40"/>
+                                <rect key="frame" x="70" y="104" width="40" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="BiI-93-BnX"/>
                                     <constraint firstAttribute="height" constant="40" id="fbY-To-GUC"/>
@@ -341,20 +341,20 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ScheduleTableViewCell" id="kM8-RN-vrh" customClass="ScheduleTableViewCell" customModule="KirokuCalendar" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="394" height="41"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="394" height="41.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kM8-RN-vrh" id="aRs-t0-OMl">
-                                            <rect key="frame" x="0.0" y="0.0" width="394" height="41"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="394" height="41.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mr5-2h-aQh">
-                                                    <rect key="frame" x="81" y="10" width="70" height="21"/>
+                                                    <rect key="frame" x="81" y="10.5" width="70" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10/19" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1c-ex-idK">
-                                                    <rect key="frame" x="10" y="10" width="53" height="21"/>
+                                                    <rect key="frame" x="10" y="10" width="53" height="21.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="53" id="GFQ-gB-BEi"/>
                                                     </constraints>
@@ -363,20 +363,20 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2sd-JV-P5K">
-                                                    <rect key="frame" x="68" y="5" width="3" height="31"/>
+                                                    <rect key="frame" x="68" y="5" width="3" height="31.5"/>
                                                     <color key="backgroundColor" name="AccentColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="3" id="CFw-5U-sht"/>
                                                     </constraints>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qdm-7h-PNz">
-                                                    <rect key="frame" x="0.0" y="10" width="10" height="21"/>
+                                                    <rect key="frame" x="0.0" y="10.5" width="10" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4nD-WZ-oMK">
-                                                    <rect key="frame" x="50" y="10" width="10" height="21"/>
+                                                    <rect key="frame" x="50" y="10.5" width="10" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -439,11 +439,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="田中太郎さんの誕生日" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cK9-dC-Uts">
+                                <rect key="frame" x="15" y="59" width="140" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="Z1X-BV-hJP"/>
+                                    <constraint firstAttribute="width" constant="140" id="rpA-Yr-Jpz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="p5a-9g-YKx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="p5a-9g-YKx" firstAttribute="trailing" secondItem="eAK-iL-PC7" secondAttribute="trailing" constant="20" id="0KF-cM-bdh"/>
+                            <constraint firstItem="cK9-dC-Uts" firstAttribute="leading" secondItem="p5a-9g-YKx" secondAttribute="leading" constant="15" id="1ME-Au-PhP"/>
                             <constraint firstItem="wyn-fU-qmb" firstAttribute="top" secondItem="Dkp-xa-aHD" secondAttribute="bottom" constant="20" id="4pB-gW-AK9"/>
                             <constraint firstItem="TcA-bf-KFg" firstAttribute="top" secondItem="Z4y-ji-f3x" secondAttribute="bottom" constant="5" id="5Ep-ED-NyW"/>
                             <constraint firstItem="KYo-5q-hH6" firstAttribute="top" secondItem="Dkp-xa-aHD" secondAttribute="bottom" constant="4" id="5uj-xy-WKt"/>
@@ -452,7 +464,7 @@
                             <constraint firstItem="TcA-bf-KFg" firstAttribute="bottom" secondItem="Dkp-xa-aHD" secondAttribute="bottom" id="KCb-2m-IY0"/>
                             <constraint firstItem="TcA-bf-KFg" firstAttribute="leading" secondItem="Dkp-xa-aHD" secondAttribute="trailing" constant="20" id="LxU-Mp-htS"/>
                             <constraint firstItem="PkJ-IH-YLy" firstAttribute="top" secondItem="p5a-9g-YKx" secondAttribute="top" constant="10" id="M1r-uY-nOR"/>
-                            <constraint firstItem="mfM-Ni-XiT" firstAttribute="top" secondItem="p5a-9g-YKx" secondAttribute="top" constant="50" id="MRI-Nf-Wi7"/>
+                            <constraint firstItem="mfM-Ni-XiT" firstAttribute="top" secondItem="p5a-9g-YKx" secondAttribute="top" constant="60" id="MRI-Nf-Wi7"/>
                             <constraint firstItem="Z4y-ji-f3x" firstAttribute="trailing" secondItem="bOj-82-EnZ" secondAttribute="trailing" id="QnX-uE-oBt"/>
                             <constraint firstItem="Dkp-xa-aHD" firstAttribute="centerX" secondItem="ISx-Oi-vJS" secondAttribute="centerX" id="Uae-NA-Mld"/>
                             <constraint firstItem="eAK-iL-PC7" firstAttribute="bottom" secondItem="TcA-bf-KFg" secondAttribute="bottom" id="WJR-5B-8Kl"/>
@@ -461,6 +473,7 @@
                             <constraint firstItem="mfM-Ni-XiT" firstAttribute="leading" secondItem="p5a-9g-YKx" secondAttribute="leading" constant="70" id="cfq-Lc-XFr"/>
                             <constraint firstItem="KYo-5q-hH6" firstAttribute="centerX" secondItem="ISx-Oi-vJS" secondAttribute="centerX" id="hNk-il-O4h"/>
                             <constraint firstItem="p5a-9g-YKx" firstAttribute="bottom" secondItem="wyn-fU-qmb" secondAttribute="bottom" constant="60" id="j9a-eZ-P67"/>
+                            <constraint firstItem="cK9-dC-Uts" firstAttribute="top" secondItem="p5a-9g-YKx" secondAttribute="top" constant="15" id="oEv-6C-XkX"/>
                             <constraint firstItem="PkJ-IH-YLy" firstAttribute="centerX" secondItem="ISx-Oi-vJS" secondAttribute="centerX" id="py7-sN-dP3"/>
                             <constraint firstItem="p5a-9g-YKx" firstAttribute="trailing" secondItem="wyn-fU-qmb" secondAttribute="trailing" constant="10" id="rPn-Ur-mrs"/>
                             <constraint firstItem="p5a-9g-YKx" firstAttribute="trailing" secondItem="ApU-s3-SLU" secondAttribute="trailing" constant="10" id="shs-ah-6yf"/>
@@ -470,6 +483,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="h1h-6c-p2J"/>
                     <connections>
+                        <outlet property="birthdayLabel" destination="cK9-dC-Uts" id="U6A-gn-BcB"/>
                         <outlet property="calendarLabel" destination="KYo-5q-hH6" id="zdI-bh-Yji"/>
                         <outlet property="changeBtn" destination="eAK-iL-PC7" id="mVJ-5D-Tzg"/>
                         <outlet property="checkmark" destination="mfM-Ni-XiT" id="Bxc-Xp-WJ9"/>
@@ -493,21 +507,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="NcZ-Cy-wf6">
-                            <rect key="frame" x="0.0" y="320" width="414" height="200"/>
+                            <rect key="frame" x="0.0" y="321.5" width="414" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <sections>
                             <tableViewSection headerTitle="Title" id="cxj-1Y-KTz">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="roz-yn-Nm8">
-                                        <rect key="frame" x="20" y="49.5" width="374" height="31"/>
+                                        <rect key="frame" x="20" y="49.5" width="374" height="31.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="roz-yn-Nm8" id="x6P-sk-S0k">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="31"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4H-z4-DTm">
-                                                    <rect key="frame" x="10" y="5" width="354" height="21"/>
+                                                    <rect key="frame" x="10" y="5" width="354" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -527,21 +541,21 @@
                             <tableViewSection headerTitle="Day" id="fdm-ao-7Ws">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="XXn-p5-vmu">
-                                        <rect key="frame" x="20" y="130.5" width="374" height="45"/>
+                                        <rect key="frame" x="20" y="131" width="374" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XXn-p5-vmu" id="yLo-qc-s66">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="Nkn-VR-UdO">
-                                                    <rect key="frame" x="239" y="1" width="130" height="43"/>
+                                                    <rect key="frame" x="239" y="1" width="130" height="43.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="9zt-TU-yfN"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="ja"/>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2ux-cj-RxU">
-                                                    <rect key="frame" x="25" y="12" width="52" height="21"/>
+                                                    <rect key="frame" x="25" y="12" width="52" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -558,21 +572,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Xlk-2p-Y7y">
-                                        <rect key="frame" x="20" y="175.5" width="374" height="45"/>
+                                        <rect key="frame" x="20" y="176.5" width="374" height="45.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xlk-2p-Y7y" id="EWJ-oG-n2i">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="rdR-3Y-j6D">
-                                                    <rect key="frame" x="239" y="1" width="130" height="43"/>
+                                                    <rect key="frame" x="239" y="1" width="130" height="43.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="nks-EU-EWG"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="ja"/>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終了日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ji0-tk-cG2">
-                                                    <rect key="frame" x="25" y="12" width="52" height="21"/>
+                                                    <rect key="frame" x="25" y="12" width="52" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -593,7 +607,7 @@
                             <tableViewSection headerTitle="memo" id="KxA-Xj-gme">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GTL-1k-vzy">
-                                        <rect key="frame" x="20" y="270.5" width="374" height="31.5"/>
+                                        <rect key="frame" x="20" y="272" width="374" height="31.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GTL-1k-vzy" id="KTc-f3-ate">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="31.5"/>
@@ -646,7 +660,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <imageView key="tableFooterView" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="ryg-xs-ee2">
-                            <rect key="frame" x="0.0" y="421.5" width="414" height="200"/>
+                            <rect key="frame" x="0.0" y="420.5" width="414" height="200"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </imageView>
                         <sections>
@@ -679,21 +693,21 @@
                             <tableViewSection headerTitle="Day" id="AEa-dw-RYx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="LxR-o4-glc">
-                                        <rect key="frame" x="20" y="134" width="374" height="45.5"/>
+                                        <rect key="frame" x="20" y="134" width="374" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LxR-o4-glc" id="ZHu-Vd-o0w">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="HZG-er-Im1">
-                                                    <rect key="frame" x="239" y="1" width="130" height="43.5"/>
+                                                    <rect key="frame" x="239" y="1" width="130" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="QG7-Wz-bsY"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="ja"/>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oPL-FX-Sz8">
-                                                    <rect key="frame" x="25" y="12" width="52" height="21.5"/>
+                                                    <rect key="frame" x="25" y="12" width="52" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -710,21 +724,21 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="oyx-17-7Ks">
-                                        <rect key="frame" x="20" y="179.5" width="374" height="45.5"/>
+                                        <rect key="frame" x="20" y="179" width="374" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="oyx-17-7Ks" id="0jS-ov-oJk">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="compact" translatesAutoresizingMaskIntoConstraints="NO" id="UKt-c1-KTN">
-                                                    <rect key="frame" x="239" y="1" width="130" height="43.5"/>
+                                                    <rect key="frame" x="239" y="1" width="130" height="43"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="130" id="jd2-g1-0Pz"/>
                                                     </constraints>
                                                     <locale key="locale" localeIdentifier="ja"/>
                                                 </datePicker>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="終了日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lrR-tT-Dov">
-                                                    <rect key="frame" x="25" y="12" width="52" height="21.5"/>
+                                                    <rect key="frame" x="25" y="12" width="52" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -745,7 +759,7 @@
                             <tableViewSection headerTitle="memo" id="Fij-yk-Icq">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="9J9-7F-AX0">
-                                        <rect key="frame" x="20" y="275" width="374" height="35"/>
+                                        <rect key="frame" x="20" y="274" width="374" height="35"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9J9-7F-AX0" id="SwC-c3-RCv">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="35"/>
@@ -774,7 +788,7 @@
                             <tableViewSection headerTitle="Image" id="vJM-HR-kZy">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="GHs-iT-uAo">
-                                        <rect key="frame" x="20" y="360" width="374" height="43.5"/>
+                                        <rect key="frame" x="20" y="359" width="374" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GHs-iT-uAo" id="M2e-Jd-62Z">
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
@@ -945,19 +959,45 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="F0Z-KY-VAM">
+                                        <rect key="frame" x="0.0" y="262" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="F0Z-KY-VAM" id="Jta-xl-4K0">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連絡先との連携" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yf1-Qy-SX5">
+                                                    <rect key="frame" x="40" y="11.5" width="334" height="21"/>
+                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="js3-as-2PQ">
+                                                    <rect key="frame" x="335" y="6.5" width="51" height="31"/>
+                                                </switch>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Yf1-Qy-SX5" firstAttribute="centerX" secondItem="Jta-xl-4K0" secondAttribute="centerX" id="A4M-qf-bGW"/>
+                                                <constraint firstItem="Yf1-Qy-SX5" firstAttribute="leading" secondItem="Jta-xl-4K0" secondAttribute="leadingMargin" constant="20" id="b57-OH-JS8"/>
+                                                <constraint firstAttribute="trailing" secondItem="js3-as-2PQ" secondAttribute="trailing" constant="30" id="ghq-av-9q4"/>
+                                                <constraint firstItem="js3-as-2PQ" firstAttribute="centerY" secondItem="Jta-xl-4K0" secondAttribute="centerY" id="gqD-qo-ox1"/>
+                                                <constraint firstItem="Yf1-Qy-SX5" firstAttribute="centerY" secondItem="Jta-xl-4K0" secondAttribute="centerY" id="pho-sT-cpb"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="データ" id="a1r-1g-Udv">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="BlD-zK-eh6">
-                                        <rect key="frame" x="0.0" y="329" width="414" height="37.5"/>
+                                        <rect key="frame" x="0.0" y="372.5" width="414" height="37"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BlD-zK-eh6" id="OaW-Pe-U5r">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="37"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="記録データリセット" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5I-yQ-8WD">
-                                                    <rect key="frame" x="40" y="8" width="334" height="21.5"/>
+                                                    <rect key="frame" x="40" y="8" width="334" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -982,6 +1022,7 @@
                     <navigationItem key="navigationItem" id="mzt-py-H83"/>
                     <connections>
                         <outlet property="calendarSwitch" destination="CCn-df-ZHC" id="Jch-7D-aRy"/>
+                        <outlet property="contactSwitch" destination="js3-as-2PQ" id="xYI-C9-X2G"/>
                         <outlet property="inrekiSwitch" destination="uLm-G7-YPe" id="7oH-Va-D7f"/>
                         <outlet property="rokuyouSwitch" destination="LEw-lx-Fca" id="sJd-Ns-jmC"/>
                     </connections>
@@ -1002,14 +1043,14 @@
                             <tableViewSection id="uIE-lH-N6T">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="2Db-2V-VMM">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="53.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2Db-2V-VMM" id="Eni-rS-54d">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月曜日" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVN-V7-PX9">
-                                                    <rect key="frame" x="40" y="16" width="334" height="21"/>
+                                                    <rect key="frame" x="40" y="16" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1024,14 +1065,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="SMQ-At-LrX">
-                                        <rect key="frame" x="0.0" y="97.5" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="98" width="414" height="53.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SMQ-At-LrX" id="koX-tI-Pbi">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="火曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fcb-Ep-ep5">
-                                                    <rect key="frame" x="40" y="16" width="334" height="21"/>
+                                                    <rect key="frame" x="40" y="16" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1046,14 +1087,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6vj-XQ-GUr">
-                                        <rect key="frame" x="0.0" y="150.5" width="414" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="151.5" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vj-XQ-GUr" id="Jtw-oH-BJz">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="水曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2uh-Cz-LiA">
-                                                    <rect key="frame" x="40" y="16" width="334" height="21.5"/>
+                                                    <rect key="frame" x="40" y="16" width="334" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1068,14 +1109,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="yze-4j-qdy">
-                                        <rect key="frame" x="0.0" y="204" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="204.5" width="414" height="53.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yze-4j-qdy" id="Bta-C5-bds">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="木曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w8x-C4-gfK">
-                                                    <rect key="frame" x="40" y="16" width="334" height="21"/>
+                                                    <rect key="frame" x="40" y="16" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1090,14 +1131,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="KIR-OW-ENe">
-                                        <rect key="frame" x="0.0" y="257" width="414" height="53.5"/>
+                                        <rect key="frame" x="0.0" y="258" width="414" height="53"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KIR-OW-ENe" id="jDa-PC-ta4">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="金曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7e8-eX-daM">
-                                                    <rect key="frame" x="40" y="16" width="334" height="21.5"/>
+                                                    <rect key="frame" x="40" y="16" width="334" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1112,14 +1153,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uGb-UU-TMT">
-                                        <rect key="frame" x="0.0" y="310.5" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="311" width="414" height="53.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uGb-UU-TMT" id="TUw-7W-GDo">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="土曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GWN-Mb-4Gx">
-                                                    <rect key="frame" x="40" y="16" width="334" height="21"/>
+                                                    <rect key="frame" x="40" y="16" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1134,14 +1175,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="5t5-GQ-Vku">
-                                        <rect key="frame" x="0.0" y="363.5" width="414" height="53"/>
+                                        <rect key="frame" x="0.0" y="364.5" width="414" height="53.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5t5-GQ-Vku" id="8op-fM-FY7">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="53.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="日曜日" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgj-Ys-YqN">
-                                                    <rect key="frame" x="40" y="16" width="334" height="21"/>
+                                                    <rect key="frame" x="40" y="16" width="334" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

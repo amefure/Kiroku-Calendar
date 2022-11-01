@@ -19,6 +19,7 @@ class SettingTableViewController:UITableViewController {
     @IBOutlet var rokuyouSwitch:UISwitch!
     @IBOutlet var inrekiSwitch:UISwitch!
     @IBOutlet var calendarSwitch:UISwitch!
+    @IBOutlet var contactSwitch:UISwitch!
     
 
     
@@ -69,6 +70,7 @@ class SettingTableViewController:UITableViewController {
         let rokuyouBool = userDefaults.string(forKey: "rokuyou") ?? "1"
         let inrekiBool = userDefaults.string(forKey: "inreki") ?? "1"
         let calendarBool = userDefaults.string(forKey: "calendar") ?? "1"
+        let contactBool = userDefaults.string(forKey: "contact") ?? "1"
         
         
         if rokuyouBool == "1"{
@@ -89,9 +91,16 @@ class SettingTableViewController:UITableViewController {
             calendarSwitch.isOn = false
         }
         
+        if contactBool == "1"{
+            contactSwitch.isOn = true
+        }else{
+            contactSwitch.isOn = false
+        }
+        
         inrekiSwitch.addTarget(self, action: #selector(self.changeInrekiSwitch(sender:)), for:  UIControl.Event.valueChanged)
         rokuyouSwitch.addTarget(self, action: #selector(self.changeRokuyouSwitch(sender:)), for:  UIControl.Event.valueChanged)
         calendarSwitch.addTarget(self, action: #selector(self.changeCalendarSwitch(sender:)), for: UIControl.Event.valueChanged)
+        contactSwitch.addTarget(self, action: #selector(self.changeContactSwitch(sender:)), for: UIControl.Event.valueChanged)
     }
     
     @objc func changeRokuyouSwitch(sender: UISwitch) {
@@ -118,6 +127,15 @@ class SettingTableViewController:UITableViewController {
             userDefaults.set("1", forKey: "calendar")
         } else {
             userDefaults.set("0", forKey: "calendar")
+        }
+    }
+    
+    @objc func changeContactSwitch(sender: UISwitch) {
+        let onCheck: Bool = sender.isOn
+        if onCheck {
+            userDefaults.set("1", forKey: "contact")
+        } else {
+            userDefaults.set("0", forKey: "contact")
         }
     }
     

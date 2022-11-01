@@ -29,7 +29,6 @@ class fetchDateInfoAPI: NSObject {
                     let dic = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
                     let dayInfoAPI = dic!["datelist"] as? [String: Any]
                     completion(dayInfoAPI!)
-                
                 } catch {
 //                    print(error.localizedDescription)
                 }

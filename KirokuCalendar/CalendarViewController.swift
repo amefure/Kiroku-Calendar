@@ -17,6 +17,7 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     let realm = try! Realm()
     let df = DateFormatter()
     let eventController = EventController()
+    let contactController = ContactController()
     
     // MARK: - data
     var dateArray:Results<DateModels>! = nil
@@ -69,7 +70,12 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         // カレンダー設定
         let userDefaults = UserDefaults.standard
         let weekNum = userDefaults.integer(forKey:"firstWeekday")
-        calender.firstWeekday = UInt(weekNum)
+        if weekNum == 0{
+            calender.firstWeekday = 7
+        }else{
+            calender.firstWeekday = UInt(weekNum)
+        }
+       
     }
     
     func hasDateAction(){
@@ -176,6 +182,8 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         
         // MARK: - カレンダーの読み込み識別→承認済みならプロパティに値が格納される
         eventController.judgeUserSetting()
+        // MARK: - 連絡先読み込み識別→承認済みならプロパティに値が格納される
+        contactController.judgeUserSetting()
       }
       
     
@@ -228,6 +236,7 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
             nextVC.date = date
             nextVC.dateInfoAPI = dateInfoAPI
             nextVC.events = eventController.events
+            nextVC.contacts = contactController.contacts
             navigationController?.pushViewController(nextVC, animated: true)
         }else{
             selectedDate = date
