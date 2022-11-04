@@ -20,6 +20,7 @@ class SettingTableViewController:UITableViewController {
     @IBOutlet var inrekiSwitch:UISwitch!
     @IBOutlet var calendarSwitch:UISwitch!
     @IBOutlet var contactSwitch:UISwitch!
+    @IBOutlet var badgeSwitch:UISwitch!
     
 
     
@@ -71,6 +72,7 @@ class SettingTableViewController:UITableViewController {
         let inrekiBool = userDefaults.string(forKey: "inreki") ?? "1"
         let calendarBool = userDefaults.string(forKey: "calendar") ?? "1"
         let contactBool = userDefaults.string(forKey: "contact") ?? "1"
+        let badgeBool = userDefaults.string(forKey: "badge") ?? "1"
         
         
         if rokuyouBool == "1"{
@@ -97,10 +99,17 @@ class SettingTableViewController:UITableViewController {
             contactSwitch.isOn = false
         }
         
+        if badgeBool == "1"{
+            badgeSwitch.isOn = true
+        }else{
+            badgeSwitch.isOn = false
+        }
+        
         inrekiSwitch.addTarget(self, action: #selector(self.changeInrekiSwitch(sender:)), for:  UIControl.Event.valueChanged)
         rokuyouSwitch.addTarget(self, action: #selector(self.changeRokuyouSwitch(sender:)), for:  UIControl.Event.valueChanged)
         calendarSwitch.addTarget(self, action: #selector(self.changeCalendarSwitch(sender:)), for: UIControl.Event.valueChanged)
         contactSwitch.addTarget(self, action: #selector(self.changeContactSwitch(sender:)), for: UIControl.Event.valueChanged)
+        badgeSwitch.addTarget(self, action: #selector(self.changeBadgeSwitch(sender:)), for: UIControl.Event.valueChanged)
     }
     
     @objc func changeRokuyouSwitch(sender: UISwitch) {
@@ -139,6 +148,15 @@ class SettingTableViewController:UITableViewController {
         }
     }
     
+    @objc func changeBadgeSwitch(sender: UISwitch) {
+        let onCheck: Bool = sender.isOn
+        if onCheck {
+            userDefaults.set("1", forKey: "badge")
+        } else {
+            userDefaults.set("0", forKey: "badge")
+        }
+    }
+    
     
     // MARK: - delegate
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -150,7 +168,6 @@ class SettingTableViewController:UITableViewController {
         
         // MARK: - 週始め
         if indexPath == [0,0] {
-            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nextVC =  storyboard.instantiateViewController(withIdentifier: "WeekDay")
             navigationController?.pushViewController(nextVC, animated: true)
@@ -160,6 +177,13 @@ class SettingTableViewController:UITableViewController {
         if indexPath == [0,1] {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let nextVC = storyboard.instantiateViewController(withIdentifier: "AccentColor")
+            navigationController?.pushViewController(nextVC,animated: true)
+        }
+        
+        // MARK: - accent color
+        if indexPath == [0,7] {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let nextVC = storyboard.instantiateViewController(withIdentifier: "WeatherArea")
             navigationController?.pushViewController(nextVC,animated: true)
         }
                 

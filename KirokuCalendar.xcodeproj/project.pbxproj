@@ -17,6 +17,9 @@
 		1264C02D290E2D9A006B17BF /* fetchDateInfoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264C02C290E2D9A006B17BF /* fetchDateInfoAPI.swift */; };
 		1264C031290FE606006B17BF /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1264C030290FE606006B17BF /* EventController.swift */; };
 		12B3102429112E7D009172F6 /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B3102329112E7D009172F6 /* ContactController.swift */; };
+		12D5567F2911C3AB00AB83D1 /* fetchWeatherAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D5567E2911C3AB00AB83D1 /* fetchWeatherAPI.swift */; };
+		12D8984429115AAE0075DB3E /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12D8984329115AAE0075DB3E /* NotificationController.swift */; };
+		12DF5EAB291466FE00BE121B /* WeatherAreaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DF5EAA291466FE00BE121B /* WeatherAreaTableViewController.swift */; };
 		12EC23CA2900C00900ABFAEB /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */; };
 		12EC23CC2901872D00ABFAEB /* WeekDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */; };
 		12EC23CE2902D60E00ABFAEB /* AccentColorModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */; };
@@ -43,6 +46,9 @@
 		1264C02C290E2D9A006B17BF /* fetchDateInfoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchDateInfoAPI.swift; sourceTree = "<group>"; };
 		1264C030290FE606006B17BF /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		12B3102329112E7D009172F6 /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
+		12D5567E2911C3AB00AB83D1 /* fetchWeatherAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fetchWeatherAPI.swift; sourceTree = "<group>"; };
+		12D8984329115AAE0075DB3E /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		12DF5EAA291466FE00BE121B /* WeatherAreaTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAreaTableViewController.swift; sourceTree = "<group>"; };
 		12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayTableViewController.swift; sourceTree = "<group>"; };
 		12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccentColorModels.swift; sourceTree = "<group>"; };
@@ -103,8 +109,7 @@
 				121A86B7290012A70037B017 /* SceneDelegate.swift */,
 				121A86B9290012A70037B017 /* CalendarViewController.swift */,
 				12EC23C92900C00900ABFAEB /* SettingTableViewController.swift */,
-				12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */,
-				12EC23CF29056EDE00ABFAEB /* AccentColorTableViewController.swift */,
+				12DF5EAC2914670900BE121B /* SettingTableView */,
 				12EC23D12905EC6C00ABFAEB /* DetailDayViewController.swift */,
 				12EC23D72907F8E300ABFAEB /* ScheduleTableViewCell.swift */,
 				12EC23DD2909E4C400ABFAEB /* DetailScheduleViewController.swift */,
@@ -113,6 +118,7 @@
 				121A86BB290012A70037B017 /* Main.storyboard */,
 				121A86BE290012A80037B017 /* Assets.xcassets */,
 				121A86C0290012A80037B017 /* LaunchScreen.storyboard */,
+				12D89845291160690075DB3E /* Controller */,
 				121A86C9290016BF0037B017 /* Models */,
 				121A86C3290012A80037B017 /* Info.plist */,
 			);
@@ -122,14 +128,33 @@
 		121A86C9290016BF0037B017 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1264C02C290E2D9A006B17BF /* fetchDateInfoAPI.swift */,
-				1264C030290FE606006B17BF /* EventController.swift */,
-				12B3102329112E7D009172F6 /* ContactController.swift */,
 				121A86CA290017600037B017 /* DateModels.swift */,
 				12EC23D32906ADD200ABFAEB /* ScheduleModels.swift */,
 				12EC23CD2902D60E00ABFAEB /* AccentColorModels.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		12D89845291160690075DB3E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				12B3102329112E7D009172F6 /* ContactController.swift */,
+				1264C030290FE606006B17BF /* EventController.swift */,
+				12D8984329115AAE0075DB3E /* NotificationController.swift */,
+				1264C02C290E2D9A006B17BF /* fetchDateInfoAPI.swift */,
+				12D5567E2911C3AB00AB83D1 /* fetchWeatherAPI.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		12DF5EAC2914670900BE121B /* SettingTableView */ = {
+			isa = PBXGroup;
+			children = (
+				12DF5EAA291466FE00BE121B /* WeatherAreaTableViewController.swift */,
+				12EC23CF29056EDE00ABFAEB /* AccentColorTableViewController.swift */,
+				12EC23CB2901872D00ABFAEB /* WeekDayTableViewController.swift */,
+			);
+			path = SettingTableView;
 			sourceTree = "<group>";
 		};
 		6CA9EBB01861C12B4C8935A3 /* Pods */ = {
@@ -259,9 +284,12 @@
 				121A86BA290012A70037B017 /* CalendarViewController.swift in Sources */,
 				121A86CB290017610037B017 /* DateModels.swift in Sources */,
 				12EC23D82907F8E300ABFAEB /* ScheduleTableViewCell.swift in Sources */,
+				12DF5EAB291466FE00BE121B /* WeatherAreaTableViewController.swift in Sources */,
 				12EC23D42906ADD300ABFAEB /* ScheduleModels.swift in Sources */,
+				12D5567F2911C3AB00AB83D1 /* fetchWeatherAPI.swift in Sources */,
 				12EC23DC2909676400ABFAEB /* SearchScheduleViewController.swift in Sources */,
 				1264C02D290E2D9A006B17BF /* fetchDateInfoAPI.swift in Sources */,
+				12D8984429115AAE0075DB3E /* NotificationController.swift in Sources */,
 				1264C031290FE606006B17BF /* EventController.swift in Sources */,
 				121A86B6290012A70037B017 /* AppDelegate.swift in Sources */,
 				12EC23DE2909E4C400ABFAEB /* DetailScheduleViewController.swift in Sources */,
@@ -419,7 +447,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KirokuCalendar/Info.plist;
@@ -436,7 +464,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.KirokuCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -452,7 +480,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = CGD79LB65H;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = KirokuCalendar/Info.plist;
@@ -469,7 +497,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 4.2;
+				MARKETING_VERSION = 4.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.ame.KirokuCalendar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

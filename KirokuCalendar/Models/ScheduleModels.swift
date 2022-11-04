@@ -8,6 +8,8 @@
 import UIKit
 import RealmSwift
 
+
+// MARK: - 予定情報格納テーブル
 class ScheduleModels: Object,ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id:ObjectId
     @Persisted var title:String

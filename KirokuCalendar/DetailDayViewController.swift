@@ -15,7 +15,8 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
 
     // MARK: - receive property
     var date:Date = Date()
-    var dateInfoAPI:[String:Any] = [:]
+    var dateInfoAPI:[String:Any] = [:] // 六曜
+    var weatherAPI:[WeatherData] = [] // 天気予報
     var events: [EKEvent]? = nil //　カレンダーからイベントを取得
     var contacts: [CNContact]? = nil // 連絡先から情報を取得
     
@@ -38,6 +39,7 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     @IBOutlet var changeBtn:UIButton!    // カレンダーアプリイベント表示チェンジボタン
     @IBOutlet var calendarLabel:UILabel! // カレンダーアプリ連携時表示ラベル
     @IBOutlet var birthdayLabel:UILabel! // 連絡先連携時表示ラベル
+    @IBOutlet var weatherImage:UIImageView!   // 天気予報
     
     
     // MARK: - Function
@@ -154,7 +156,7 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
         if contacts != nil {
             // 連携済
             // 対象の日付を範囲に含んでいるイベントのみにする
-            var dateComponent = Calendar.current.dateComponents(in: TimeZone.current, from: date)
+            let dateComponent = Calendar.current.dateComponents(in: TimeZone.current, from: date)
             contacts = contacts!.filter({ $0.birthday?.month == dateComponent.month && $0.birthday?.day == dateComponent.day })
             if contacts!.count != 0{
                 if contacts!.first != nil{
@@ -170,6 +172,25 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
         }
     }
     // MARK: - 連絡先連携メソッド
+    
+    
+    
+    // MARK: - 天気予報表示メソッド
+    func hasWeatherAPI(){
+        self.weatherImage.isHidden = true
+        weatherImage.layer.opacity = 0.8
+        weatherImage.layer.cornerRadius = 5
+        weatherImage.clipsToBounds = true
+        if weatherAPI.count != 0 {
+            df.dateFormat = "yyyy-MM-dd"
+            if let item = weatherAPI.first(where: { $0.date == df.string(from: date) }) {
+                self.weatherImage.isHidden = false
+                self.weatherImage.image = item.judgeWeatherImage()
+            }
+        }
+    }
+    
+    // MARK: - 天気予報表示メソッド
     
     // MARK: - Function
     
@@ -218,6 +239,9 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
         // MARK: - API  六曜や陰暦を取得する
         setUpDateInfoLabel()
         
+        // MARK: - API 天気予報
+        hasWeatherAPI()
+        
         // MARK: - InputPageへの画面遷移
         let barButton = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style:.plain, target: self, action: #selector(self.showInputSchedule))
         self.navigationItem.rightBarButtonItem = barButton
@@ -241,10 +265,7 @@ class DetailDayViewController: UIViewController ,UITableViewDelegate,UITableView
     override func viewWillAppear(_ animated: Bool) {
         dataFetch()
         tableView.reloadData()
-        
         hasEventsLoaded()
-        
-
     }
     
     // MARK: - BtnAction

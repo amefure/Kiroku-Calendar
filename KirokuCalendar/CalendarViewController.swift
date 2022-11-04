@@ -10,21 +10,24 @@ import FSCalendar
 import RealmSwift
 import GoogleMobileAds
 
-
 class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarDataSource,FSCalendarDelegateAppearance ,UIAdaptivePresentationControllerDelegate{
     
     // MARK: - instance
     let realm = try! Realm()
     let df = DateFormatter()
-    let eventController = EventController()
-    let contactController = ContactController()
+    let eventController = EventController()         // カレンダー連携
+    let contactController = ContactController()     // 連絡先連携
+    let noticeController = NotificationController() // 通知設定(バッジ)
     
     // MARK: - data
-    var dateArray:Results<DateModels>! = nil
-    var scheduleArray:Results<ScheduleModels>! = nil
+    var dateArray:Results<DateModels>! = nil         // 継続記録データ
+    var scheduleArray:Results<ScheduleModels>! = nil // 予定データ
     
     // MARK: - API  六曜や陰暦を取得する
     var dateInfoAPI:[String:Any] = [:]
+    
+    // MARK: - API  天気予報
+    var weatherAPI:[WeatherData] = []
     
     // MARK: - Outlet
     @IBOutlet weak var calender:FSCalendar!
@@ -32,9 +35,8 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     @IBOutlet var addBtn:UIButton!
     
     // MARK: - variable
-    var color:String = "tintColor"
-    var selectedDate:Date = Date()
-    var selectedDateTag:Bool = false
+    var selectedDate:Date = Date()   // 日付2回連続選択時画面遷移用
+    var selectedDateTag:Bool = false // 日付2回連続選択時画面遷移用
     
     // MARK: - Admob
     var bannerView: GADBannerView!
@@ -67,10 +69,11 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
 
     // MARK: - Function
     func calenderSetting(){
-        // カレンダー設定
+        // カレンダー設定:週はじめ
         let userDefaults = UserDefaults.standard
-        let weekNum = userDefaults.integer(forKey:"firstWeekday")
-        if weekNum == 0{
+        let weekNum = userDefaults.integer(forKey:"firstWeekday") // 未設定なら0になる
+        if weekNum == 0 {
+            // 0を指定すると土曜が月曜になるので7を指定
             calender.firstWeekday = 7
         }else{
             calender.firstWeekday = UInt(weekNum)
@@ -85,6 +88,7 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
     
         self.df.dateFormat = "yyyy-MM-dd"
         
+        // MARK: - 継続記録ボタンのビューを変更
         if dateArray.first(where: { $0.date == df.string(from: selectedDate ) }) != nil {
             entryBtn.setImage(UIImage(systemName: "checkmark.seal.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .light, scale: .default))?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
             entryBtn.tag = 1
@@ -94,10 +98,11 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         }
     }
     
+    // MARK: - ユーザーが選択しているテーマカラー
     func selectedColor() -> UIColor{
     
         let userDefaults = UserDefaults.standard
-        self.color = userDefaults.string(forKey:"accentColor") ?? "tintColor"
+        let color = userDefaults.string(forKey:"accentColor") ?? "tintColor"
         switch color {
         case AccentColorModels.yellow.rawValue:
             return AccentColorModels.yellow.thisColor
@@ -134,6 +139,26 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
                 }
         }
     }
+    
+    // MARK: - API  六曜や陰暦を取得する
+    func loadWeatherAPI() {
+        // ユーザーフラグどちらかONならAPI読み込み
+        weatherAPI = []
+        let api = fetchWeatherAPI()
+        api.getWeatherFromTENKIYOHOUAPI { data in
+                DispatchQueue.main.async {
+                    if data != nil{
+                        for item in data! {
+                            let weatherDic = item as? [String:Any]
+                            let obj = WeatherData()
+                            obj.date = weatherDic?["date"] as! String
+                            obj.weather = weatherDic?["telop"] as! String
+                            self.weatherAPI.append(obj)
+                        }
+                    }
+                }
+            }
+    }
     // MARK: - Function
     
     // MARK: - View
@@ -156,16 +181,19 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         bannerView.load(GADRequest())
         // MARK: - Admob
         
-        // MARK: - API  六曜や陰暦を取得する
-        loadDateAPI()
-        
         // MARK: -　最初のみ当日の日付の時間まで保持しているため、時間を除外　日付のみに df.dateFormat = "yyyy-MM-dd"
         let dateStr = df.string(from: Date())
-        print(dateStr)
         selectedDate = df.date(from:dateStr)!
         
-        // MARK: - カレンダーの読み込み識別→承認済みならプロパティに値が格納される
+        // MARK: - API  六曜や陰暦を取得する (1)
+        loadDateAPI()
+        loadWeatherAPI()
+        // MARK: - カレンダーの読み込み識別→承認済みならプロパティに値が格納される (2)
         eventController.judgeUserSetting()
+        // MARK: - 連絡先読み込み識別→承認済みならプロパティに値が格納される (3)
+        contactController.judgeUserSetting()
+        // MARK: - バッジセット (4)
+        setbadge()
         
     }
     
@@ -177,17 +205,20 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         hasDateAction()
         calenderSetting()
         calender.reloadData()
-        // MARK: - API  六曜や陰暦を取得する
-        loadDateAPI()
         
-        // MARK: - カレンダーの読み込み識別→承認済みならプロパティに値が格納される
+        // MARK: - API  六曜や陰暦を取得する (1)
+        loadDateAPI()
+        loadWeatherAPI()
+        // MARK: - カレンダーの読み込み識別→承認済みならプロパティに値が格納される (2)
         eventController.judgeUserSetting()
-        // MARK: - 連絡先読み込み識別→承認済みならプロパティに値が格納される
+        // MARK: - 連絡先読み込み識別→承認済みならプロパティに値が格納される (3)
         contactController.judgeUserSetting()
+        // MARK: - バッジセット (4)
+        setbadge()
       }
       
     
-    // MARK: - Action
+    // MARK: - 継続記録を登録するボタン(下部中央)
     @objc func entryDate(){
         if entryBtn.tag == 0 {
             try! realm.write {
@@ -209,7 +240,7 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         }
     }
     
-    // MARK: - Action
+    // MARK: - 予定登録ページ遷移ボタン(下部右)
     @objc func showInput(){
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextVC = storyboard.instantiateViewController(withIdentifier: "InputSchedule") as! InputScheduleViewController
@@ -220,13 +251,31 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         
     }
     
-    // Input登録後にカレンダーを更新する
+    // MARK: - 今日の日付にカレンダーを戻すボタン(Navigation)
+    @IBAction func todayBackView(){
+        calender.currentPage = Date()
+    }
+    
+    // MARK: - Input登録後にカレンダーを更新する
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         calender.reloadData()
      }
 
-    // MARK: - delegate
+    // MARK: - バッジ登録処理
+    func setbadge(){
+        var date = Date()
+        df.dateFormat = "yyyy-MM-dd"
+        df.locale = Locale(identifier: "ja_JP")
+        df.calendar = Calendar(identifier: .gregorian)
+        let dateStr = df.string(from: date)
+        date = df.date(from: dateStr)!
+        let scheduleNum = scheduleArray.filter("(start <= %@ && end >= %@) OR start == %@",date,date,date).count
+        noticeController.setbadgeNumber(num: scheduleNum)
+    }
     
+    
+    // MARK: - FSCalender delegate
+    // MARK: - 選択された日付の詳細ページへ(2回クリックされた時のみ)
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
 
         if selectedDate == date {
@@ -235,6 +284,7 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
             let nextVC = storyboard.instantiateViewController(withIdentifier: "DetailDay") as! DetailDayViewController
             nextVC.date = date
             nextVC.dateInfoAPI = dateInfoAPI
+            nextVC.weatherAPI = weatherAPI
             nextVC.events = eventController.events
             nextVC.contacts = contactController.contacts
             navigationController?.pushViewController(nextVC, animated: true)
@@ -244,7 +294,7 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         hasDateAction()
     }
     
-    // 継続記録を表示
+    // MARK: - 継続記録イメージを表示
     func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
         let image = UIImage(systemName: "checkmark.seal.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .light, scale: .default))?.withTintColor(selectedColor(), renderingMode: .alwaysOriginal)
 
@@ -254,18 +304,14 @@ class CalendarViewController: UIViewController,FSCalendarDelegate,FSCalendarData
         return nil
     }
     
-    // FSCalendarDelegateAppearanceが必要
-    // 日付の文字色を変更する
+    // MARK: -  予定のある日付の文字色を変更する　FSCalendarDelegateAppearanceが必要
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, titleDefaultColorFor date: Date) -> UIColor? {
         df.dateFormat = "yyyy-MM-dd"
-        
-        
         if (scheduleArray.first(where: { $0.betweenDate(start: df.string(from:$0.start), end:  df.string(from:$0.end), date: date) == true }) != nil) {
             return .orange
         }
         return appearance.titleDefaultColor
       }
-    
-    
+    // MARK: - FSCalender delegate
 }
 

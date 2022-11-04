@@ -35,6 +35,9 @@ class EventController {
                 if granted && error == nil {
 //                    print("許可")
                     self.loadEvents()
+                }else{
+                    let userDefaults = UserDefaults.standard
+                    userDefaults.set("0", forKey: "calendar")
                 }
             })
         }

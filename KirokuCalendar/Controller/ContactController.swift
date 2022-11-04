@@ -40,6 +40,9 @@ class ContactController {
             contactStore.requestAccess(for: .contacts, completionHandler: { (granted, error) in
                 if granted && error == nil {
                     // 許可
+                }else{
+                    let userDefaults = UserDefaults.standard
+                    userDefaults.set("0", forKey: "contact")
                 }
             })
         }

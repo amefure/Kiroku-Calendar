@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-// MARK: - Article
+// MARK: -　継続記録格納用テーブル
 class DateModels:Object,ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var id:ObjectId
     @Persisted var date:String
