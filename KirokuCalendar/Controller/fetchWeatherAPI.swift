@@ -9,6 +9,13 @@ import UIKit
 
 class fetchWeatherAPI: NSObject {
     
+    func validationUrl (urlString: String) -> Bool {
+        if let nsurl = NSURL(string: urlString) {
+            return UIApplication.shared.canOpenURL(nsurl as URL)
+        }
+        return false
+    }
+    
     func areaCode(_ area:String) -> String{
         switch area {
         case WeatherArea.hokkaidou.rawValue:
@@ -45,13 +52,16 @@ class fetchWeatherAPI: NSObject {
         
         let area = UserDefaults.standard.string(forKey:"weather") ?? "愛知県"
         let code = areaCode(area)
-        guard let url = URL(string: "https://weather.tsukumijima.net/api/forecast/city/\(code)") else {
-            // 無効なURLの場合
+        let urlString = "https://weather.tsukumijima.net/api/forecast/city/\(code)"
+        // 有効なURLかをチェック
+        if validationUrl(urlString: urlString) == false {
             return
         }
-        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        // リクエストを構築
         let request = URLRequest(url: url)
-        
         
         // URLにアクセス
         URLSession.shared.dataTask(with: request) { data, response, error in
@@ -66,7 +76,7 @@ class fetchWeatherAPI: NSObject {
                     let weatherAPI = dic!["forecasts"]  as? Array<Any>
                     completion(weatherAPI ?? nil)
                 } catch {
-                    //                    print(error.localizedDescription)
+//                    print(error.localizedDescription)
                 }
             } else {
                 // データが取得できなかった場合の処理
@@ -91,6 +101,8 @@ class WeatherData {
         case "曇り":
             return UIImage(systemName: "cloud.fill", withConfiguration: UIImage.SymbolConfiguration.preferringMulticolor())!
         case "曇一時雨":
+            return UIImage(systemName: "cloud.rain.fill", withConfiguration: UIImage.SymbolConfiguration.preferringMulticolor())!
+        case "曇のち時々雨":
             return UIImage(systemName: "cloud.rain.fill", withConfiguration: UIImage.SymbolConfiguration.preferringMulticolor())!
         case "晴時々曇":
             return UIImage(systemName: "cloud.sun.fill", withConfiguration: UIImage.SymbolConfiguration.preferringMulticolor())!

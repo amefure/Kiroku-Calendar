@@ -9,19 +9,29 @@ import UIKit
 
 class fetchDateInfoAPI: NSObject {
     
+    func validationUrl (urlString: String) -> Bool {
+        if let nsurl = NSURL(string: urlString) {
+            return UIApplication.shared.canOpenURL(nsurl as URL)
+        }
+        return false
+    }
+    
     func getDateInfoFromKOYOKMIAPI(completion: @escaping ([String:Any]) -> Void) {
             
         // MARK: - https://koyomi.zingsystem.com/api/
-//        {"datelist":{"2022-04-01":{"week":"金","inreki":"卯月","gengo":"令和","wareki":4,"zyusi":"甲","zyunisi":"申","eto":"寅","sekki":"","kyurekiy":2022,"kyurekim":3,"kyurekid":1,"rokuyou":"先負","holiday":""},"2022-04-02":{"week":"土","inreki":"卯月","gengo":"令和","wareki":4,"zyusi":"乙","zyunisi":"酉","eto":"寅","sekki":"","kyurekiy":2022,"kyurekim":3,"kyurekid":2,"rokuyou":"仏滅","holiday":""}}
-        
-        guard let url = URL(string: "https://tech.amefure.com/rokuyou") else {
-            // 無効なURLの場合
+
+        let urlString = "https://tech.amefure.com/rokuyou"
+        // 有効なURLかをチェック
+        if validationUrl(urlString: urlString) == false {
             return
         }
-        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        // リクエストを構築
         let request = URLRequest(url: url)
         
-        // URLにアクセス
+        // URLにアクセスしてレスポンスを取得する
         URLSession.shared.dataTask(with: request) { data, response, error in
         
             if let data = data {
@@ -34,11 +44,8 @@ class fetchDateInfoAPI: NSObject {
                 }
             } else {
                 // データが取得できなかった場合の処理
-//                print("Fetch failed: \(error?.localizedDescription ?? "Unknown error")")
+//                print(error?.localizedDescription ?? "不明なエラー")
             }
-        }.resume()  
-        
-        
+        }.resume()     
     }
-
 }
